@@ -1,0 +1,89 @@
+// str(x) uses argument's str method if available or calls native _str_ function.
+// It is automatically invoked by prefix '#'.
+fun str(obj) {
+  if ((type(obj) == "instance") and has(obj, "str")) {
+    return obj.str();
+  } else {
+    return _str_(obj);
+  }
+}
+
+// concat(x, y) uses str function and native _concat_ function.
+// It is automatically invoked by infix '#'.
+fun concat(left, right) {
+  return _concat_(str(left), str(right));
+}
+
+// Fiber class wraps low-level task scheduling operations.
+class Fiber {
+  init(function) {
+    this.function = function;
+    this._fiber_ = _fiber_new_();
+  }
+
+  run(arg) {
+    _fiber_run_(this._fiber_, arg);
+  }
+}
+
+// User-extensible List class relies on low-level ObjList.
+class List {
+  init() {
+    this._data_ = _list_new_();
+  }
+
+  add(item) {
+    return _list_add_(this._data_, item);
+  }
+
+  del(index) {
+    return _list_del_(this._data_, index);
+  }
+
+  getAt(index) {
+    return _list_get_(this._data_, index);
+  }
+
+  insert(index, item) {
+    return _list_insert_(this._data_, index, item);
+  }
+
+  len() {
+    return _list_len_(this._data_);
+  }
+
+  setAt(index, value) {
+    return _list_set_(this._data_, index, value);
+  }
+
+  str() {
+    return _list_str_(this._data_);
+  }
+}
+
+// User-extensible Table class relies on ObjTable.
+class Table {
+  init() {
+    this._data_ = _tbl_new_();
+  }
+
+  del(key) {
+    return _tbl_del_(this._data_, key);
+  }
+
+  getAt(key) {
+    return _tbl_get_(this._data_, key);
+  }
+
+  len() {
+    return _tbl_len_(this._data_);
+  }
+
+  setAt(key, value) {
+    return _tbl_set_(this._data_, key, value);
+  }
+
+  str() {
+    return _tbl_str_(this._data_);
+  }
+}
