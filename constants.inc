@@ -11,7 +11,6 @@ CONSTANT_STRING(strListClass_, "List");
 CONSTANT_STRING(strNativeFn_, "<native fn>");
 CONSTANT_STRING(strNative_, "native function");
 CONSTANT_STRING(strNil_, "nil");
-CONSTANT_STRING(strNil_, "nil");
 CONSTANT_STRING(strNumber_, "number");
 CONSTANT_STRING(strScript_, "<script>");
 CONSTANT_STRING(strString_, "string");
