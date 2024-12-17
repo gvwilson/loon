@@ -585,7 +585,7 @@ static InterpretResult runSingle(ObjFiber** fiberPtr, CallFrame** framePtr, Byte
       break;
     }
 
-    case UP_SUPER_GET: {
+    case OP_SUPER_GET: {
       ObjString* name = READ_STRING();
       ObjClass* superclass = AS_CLASS(pop());
       if (!bindMethod(superclass, name)) {

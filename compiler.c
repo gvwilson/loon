@@ -579,7 +579,7 @@ static void super_(bool canAssign) {
   }
   else {
     namedVariable(syntheticToken("super"), false);
-    emitBytes(UP_SUPER_GET, name);
+    emitBytes(OP_SUPER_GET, name);
   }
 }
 

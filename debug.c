@@ -111,11 +111,11 @@ int disassembleInstruction(Chunk* chunk, int offset) {
     case OP_PROPERTY_SET: return constantInstruction("OP_PROPERTY_SET", chunk, offset);
     case OP_RETURN: return simpleInstruction("OP_RETURN", offset);
     case OP_SUBTRACT: return simpleInstruction("OP_SUBTRACT", offset);
+    case OP_SUPER_GET: return constantInstruction("OP_SUPER_GET", chunk, offset);
     case OP_TRUE: return simpleInstruction("OP_TRUE", offset);
     case OP_UPVALUE_CLOSE: return simpleInstruction("OP_UPVALUE_CLOSE", offset);
     case OP_UPVALUE_GET: return byteInstruction("OP_UPVALUE_GET", chunk, offset);
     case OP_UPVALUE_SET: return byteInstruction("OP_UPVALUE_SET", chunk, offset);
-    case UP_SUPER_GET: return constantInstruction("UP_SUPER_GET", chunk, offset);
     default:
       print("Unknown opcode %d\n", instruction);
       return offset + 1;

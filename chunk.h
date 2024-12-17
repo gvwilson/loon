@@ -39,11 +39,11 @@ typedef enum {
   OP_PROPERTY_SET,
   OP_RETURN,
   OP_SUBTRACT,
+  OP_SUPER_GET,
   OP_TRUE,
   OP_UPVALUE_CLOSE,
   OP_UPVALUE_GET,
-  OP_UPVALUE_SET,
-  UP_SUPER_GET
+  OP_UPVALUE_SET
 } OpCode;
 
 typedef struct {
